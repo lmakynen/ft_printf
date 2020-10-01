@@ -6,7 +6,7 @@
 /*   By: lmakynen <lmakynen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/30 15:10:59 by lmakynen          #+#    #+#             */
-/*   Updated: 2020/09/30 21:00:53 by lmakynen         ###   ########.fr       */
+/*   Updated: 2020/10/01 17:52:12 by lmakynen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,8 @@
 # define MOD "#-+ .*0123456789hlLz"
 # define FLAGS "-+ #0"
 # define ALL "cspdiouxXf#-+ .*0123456789hLljz"
-# define CURR s->input[s->pos]
-# define NEXT s->input[s->pos + 1]
+# define CURR_POS s->input[s->pos]
+# define NEXT_POS s->input[s->pos + 1]
 
 /*
 ** Struct for the %[flags][width][.precision][length][conversion specifier].
@@ -60,6 +60,8 @@ void			modifier(t_struct *s, const char *format, va_list ap);
 
 void			conversion(t_struct *s, const char *format, va_list ap);
 void			char_conv(t_struct *s, va_list ap);
+void			str_conv(t_struct *s, va_list ap);
+void			int_conv(t_struct *s, va_list ap);
 
 int				check_input(const char *format, t_struct *s, va_list ap);
 int				ft_printf(const char *format, ...);

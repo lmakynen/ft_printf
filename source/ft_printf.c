@@ -6,7 +6,7 @@
 /*   By: lmakynen <lmakynen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/30 17:06:14 by lmakynen          #+#    #+#             */
-/*   Updated: 2020/09/30 21:20:26 by lmakynen         ###   ########.fr       */
+/*   Updated: 2020/10/01 17:51:17 by lmakynen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,34 +22,34 @@ void	set_struct(t_struct *s)
 	s->width = 0;
 	s->precision = 0;
 	s->length = 0;
-	s->printed = 0;
 }
 
 void		check_all(t_struct *s, const char *format, va_list ap)
 {
 	s->pos++;
+	set_struct(s);
 	modifier(s, format, ap);
 	conversion(s, format, ap);
 }
 
 void		check_format(t_struct *s, const char *format, va_list ap)
 {
-	while (CURR != '\0')
+	while (CURR_POS != '\0')
 	{
-		if (CURR == '%' && NEXT == '%')
+		if (CURR_POS == '%' && NEXT_POS == '%')
 		{
-			write(1, &CURR, 1);
+			write(1, &CURR_POS, 1);
 			s->pos += 2;
 			s->printed++;
 		}
-		else if (CURR == '%')
+		else if (CURR_POS == '%')
 		{
 			check_all(s, format, ap);
 			s->pos++;
 		}
 		else
 		{
-			write(1, &CURR, 1);
+			write(1, &CURR_POS, 1);
 			s->printed++;
 			s->pos++;
 		}
@@ -66,8 +66,8 @@ int		ft_printf(const char *format, ...)
 		return (-1);
 	va_start(ap, format);
 	s->input = (char*)format;
-	set_struct(s);
 	s->pos = 0;
+	s->printed = 0;
 	len = ft_strlen(format);
 	if (len == 0 || (len == 1 && format[0] == '%'))
 		return (0);
