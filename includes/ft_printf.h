@@ -6,7 +6,7 @@
 /*   By: lmakynen <lmakynen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/30 15:10:59 by lmakynen          #+#    #+#             */
-/*   Updated: 2020/10/01 17:52:12 by lmakynen         ###   ########.fr       */
+/*   Updated: 2020/10/13 16:55:58 by lmakynen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ typedef struct	s_struct
 	int		precision;
 	int		length;
 	int		printed;
+	int		empty;
 	char	*input;
 }				t_struct;
 

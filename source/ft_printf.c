@@ -6,7 +6,7 @@
 /*   By: lmakynen <lmakynen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/30 17:06:14 by lmakynen          #+#    #+#             */
-/*   Updated: 2020/10/01 17:51:17 by lmakynen         ###   ########.fr       */
+/*   Updated: 2020/10/13 16:56:10 by lmakynen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,9 @@ void	set_struct(t_struct *s)
 	s->hash = 0;
 	s->zero = 0;
 	s->width = 0;
-	s->precision = 0;
+	s->precision = -1;
 	s->length = 0;
+	s->empty = 0;
 }
 
 void		check_all(t_struct *s, const char *format, va_list ap)

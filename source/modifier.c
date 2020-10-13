@@ -6,7 +6,7 @@
 /*   By: lmakynen <lmakynen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/30 18:46:01 by lmakynen          #+#    #+#             */
-/*   Updated: 2020/10/01 16:15:30 by lmakynen         ###   ########.fr       */
+/*   Updated: 2020/10/13 16:59:49 by lmakynen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,15 +51,18 @@ void	precision(t_struct *s, const char *format, va_list ap)
 {
 	if (format[s->pos] == '.')
 	{
-		if (format[s->pos + 1] >= '0' && format[s->pos + 1] <= '9')
+		s->pos++;
+		s->precision = 0;
+		while (format[s->pos] >= '0' && format[s->pos] <= '9')
 		{
-			s->precision = ft_atoi(&format[s->pos + 1]);
-			s->pos += ft_intcount(s->precision) + 1;;
+				s->precision *= 10;
+				s->precision += (format[s->pos] - 48);
+				s->pos++;
 		}
-		else if (format[s->pos + 1] == '*')
+		if (format[s->pos] == '*')
 		{
 			s->precision = va_arg(ap, int);
-			s->pos += ft_intcount(s->precision) + 1;
+			s->pos++;
 			// maybe like this? check if there's specific rules (for example 0 or < 0)
 		}
 	}

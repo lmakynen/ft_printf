@@ -6,7 +6,7 @@
 /*   By: lmakynen <lmakynen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/01 15:48:51 by lmakynen          #+#    #+#             */
-/*   Updated: 2020/10/01 16:28:49 by lmakynen         ###   ########.fr       */
+/*   Updated: 2020/10/13 16:45:18 by lmakynen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,11 @@ static char		*precision_str(t_struct *s, char *str)
 	char		*tmp;
 	size_t		i;
 
+	if (s->precision == 0)
+	{
+		str = "\0";
+		return (str);
+	}
 	i = (size_t)s->precision;
 	tmp = ft_strndup(str, i);
 	str = tmp;
@@ -45,8 +50,10 @@ void			str_conv(t_struct *s, va_list ap)
 	char	*new;
 
 	str = va_arg(ap, char*);
+	if (str == NULL)
+		str = "(null)";
 	i = (int)ft_strlen(str);
-	if (s->precision != 0 && i > s->precision)
+	if (s->precision > -1 && i > s->precision)
 	{
 		new = precision_str(s, str);
 		str = new;
