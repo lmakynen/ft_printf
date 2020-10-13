@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lmakynen <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: lmakynen <lmakynen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/17 16:52:19 by lmakynen          #+#    #+#             */
-/*   Updated: 2020/09/04 17:56:51 by lmakynen         ###   ########.fr       */
+/*   Updated: 2020/10/13 18:48:53 by lmakynen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	fill_line(char **arr, int fd, char **line, int ret)
+static int	fill_line(char **arr, int fd, char **line, int ret)
 {
 	size_t		len;
 	char		*tmp;
@@ -40,7 +40,7 @@ int	fill_line(char **arr, int fd, char **line, int ret)
 	return (1);
 }
 
-int	get_next_line(const int fd, char **line)
+int			get_next_line(const int fd, char **line)
 {
 	static char		*arr[4864];
 	char			*tmp;

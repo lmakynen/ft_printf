@@ -6,7 +6,7 @@
 /*   By: lmakynen <lmakynen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/17 16:09:52 by lmakynen          #+#    #+#             */
-/*   Updated: 2020/09/30 19:06:35 by lmakynen         ###   ########.fr       */
+/*   Updated: 2020/10/13 18:55:46 by lmakynen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,8 @@ char				**ft_strsplit(char const *s, char c);
 char				*ft_strsub(char const *s, unsigned int start, size_t len);
 char				*ft_itoa(int n);
 char				*ft_strndup(const char *s1, size_t n);
+char				*ft_itoa_base(long long value, int base);
+char				*ft_low_itoa_base(long long value, int base);
 
 int					ft_strncmp(const char *s1, const char *s2, size_t n);
 int					ft_strcmp(const char *s1, const char *s2);

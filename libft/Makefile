@@ -6,7 +6,7 @@
 #    By: lmakynen <lmakynen@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/11/17 17:06:48 by lmakynen          #+#    #+#              #
-#    Updated: 2020/09/30 19:27:03 by lmakynen         ###   ########.fr        #
+#    Updated: 2020/10/13 18:56:07 by lmakynen         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ SOURCE = ft_putchar.c ft_putchar_fd.c ft_putnbr.c ft_putnbr_fd.c ft_putstr.c ft_
 		ft_memmove.c ft_memchr.c ft_memcmp.c ft_strlcat.c ft_itoa.c ft_lstnew.c ft_abs.c \
 		ft_lstdelone.c ft_lstdel.c ft_lstadd.c ft_lstiter.c ft_lstmap.c ft_isupper.c \
 		ft_islower.c ft_isspace.c ft_strndup.c ft_lstaddend.c ft_isblank.c get_next_line.c \
-		ft_intcount.c
+		ft_intcount.c ft_itoa_base.c ft_low_itoa_base.c
 OFILES = $(subst .c,.o,$(SOURCE))
 INCLUDES = libft.h
 
