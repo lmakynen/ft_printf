@@ -6,7 +6,7 @@
 /*   By: lmakynen <lmakynen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/30 18:50:17 by lmakynen          #+#    #+#             */
-/*   Updated: 2020/10/13 16:59:47 by lmakynen         ###   ########.fr       */
+/*   Updated: 2020/10/20 19:13:25 by lmakynen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,12 @@ void		conversion(t_struct *s, const char *format, va_list ap)
 		str_conv(s, ap);
 	else if (format[s->pos] == 'd' || CURR_POS == 'i')
 		int_conv(s, ap);
-	//conv_int(s, format);
-	//conv_pointer(s, format);
+	else if (CURR_POS == 'X' || CURR_POS == 'x')
+		hexa_conv(s, ap);
+	else if (CURR_POS == 'o')
+		octal_conv(s, ap);
+	else if (CURR_POS == 'p')
+		pointer_conv(s, ap);
 	//add more conversions here
 	//we need to pass the struct to use the modifiers
 }

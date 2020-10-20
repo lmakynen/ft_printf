@@ -6,7 +6,7 @@
 /*   By: lmakynen <lmakynen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/30 15:10:59 by lmakynen          #+#    #+#             */
-/*   Updated: 2020/10/13 16:55:58 by lmakynen         ###   ########.fr       */
+/*   Updated: 2020/10/20 19:16:15 by lmakynen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include "../libft/libft.h"
 # include <stdarg.h>
 # include <unistd.h>
+# include <stdint.h>
 
 /*
 ** Macros of conversions, flags, modifiers and all of them combined.
@@ -63,8 +64,17 @@ void			conversion(t_struct *s, const char *format, va_list ap);
 void			char_conv(t_struct *s, va_list ap);
 void			str_conv(t_struct *s, va_list ap);
 void			int_conv(t_struct *s, va_list ap);
+void			check_width(t_struct *s, int i, int nb);
+void			print_space(t_struct *s, int state);
+void			print_zeroes(t_struct *s, int i);
+void			hexa_conv(t_struct *s, va_list ap);
+void			octal_conv(t_struct *s, va_list ap);
+void			print_value(t_struct *s, char *str, intmax_t i);
+void			pointer_conv(t_struct *s, va_list ap);
 
 int				check_input(const char *format, t_struct *s, va_list ap);
 int				ft_printf(const char *format, ...);
+
+intmax_t		check_sign(t_struct *s, int i);
 
 #endif
