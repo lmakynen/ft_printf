@@ -6,7 +6,7 @@
 /*   By: lmakynen <lmakynen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/17 16:09:52 by lmakynen          #+#    #+#             */
-/*   Updated: 2020/10/13 18:55:46 by lmakynen         ###   ########.fr       */
+/*   Updated: 2020/10/23 19:10:44 by lmakynen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 
 # include <unistd.h>
 # include <stdlib.h>
+# include <stdint.h>
 
 typedef struct		s_list
 {
@@ -56,6 +57,7 @@ void				ft_lstdel(t_list **alst, void (*del)(void *, size_t));
 void				ft_lstadd(t_list **alst, t_list *new);
 void				ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 void				ft_lstaddend(t_list **alst, t_list *end);
+void				ft_putnbr_intmax(intmax_t nbr);
 
 char				*ft_strcpy(char *dst, const char *src);
 char				*ft_strdup(const char *s1);
@@ -76,8 +78,8 @@ char				**ft_strsplit(char const *s, char c);
 char				*ft_strsub(char const *s, unsigned int start, size_t len);
 char				*ft_itoa(int n);
 char				*ft_strndup(const char *s1, size_t n);
-char				*ft_itoa_base(long long value, int base);
-char				*ft_low_itoa_base(long long value, int base);
+char				*ft_itoa_base(intmax_t value, int base);
+char				*ft_low_itoa_base(intmax_t value, int base);
 
 int					ft_strncmp(const char *s1, const char *s2, size_t n);
 int					ft_strcmp(const char *s1, const char *s2);
@@ -99,6 +101,6 @@ int					ft_isblank(int c);
 int					ft_wordcount(char *str, char c);
 int					get_next_line(const int fd, char **line);
 int					ft_abs(int i);
-int					ft_intcount(long n);
+int					ft_intcount(intmax_t n);
 
 #endif

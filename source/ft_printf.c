@@ -6,13 +6,13 @@
 /*   By: lmakynen <lmakynen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/30 17:06:14 by lmakynen          #+#    #+#             */
-/*   Updated: 2020/10/13 16:56:10 by lmakynen         ###   ########.fr       */
+/*   Updated: 2020/10/23 18:24:12 by lmakynen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-void	set_struct(t_struct *s)
+void		set_struct(t_struct *s)
 {
 	s->minus = 0;
 	s->plus = 0;
@@ -57,7 +57,7 @@ void		check_format(t_struct *s, const char *format, va_list ap)
 	}
 }
 
-int		ft_printf(const char *format, ...)
+int			ft_printf(const char *format, ...)
 {
 	va_list		ap;
 	t_struct	*s;
@@ -76,5 +76,4 @@ int		ft_printf(const char *format, ...)
 	va_end(ap);
 	free(s);
 	return (s->printed);
-	//ft_itoa_base needs to be modified
 }

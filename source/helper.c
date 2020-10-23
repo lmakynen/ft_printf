@@ -6,19 +6,20 @@
 /*   By: lmakynen <lmakynen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/20 15:48:21 by lmakynen          #+#    #+#             */
-/*   Updated: 2020/10/20 18:54:52 by lmakynen         ###   ########.fr       */
+/*   Updated: 2020/10/23 18:50:55 by lmakynen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-void			check_width(t_struct *s, int i, int nb)
+void			check_width(t_struct *s, int i, intmax_t nb)
 {
 	if (s->precision > i)
 		s->width -= (s->precision - i);
 	if (s->plus == 1 && nb >= 0)
 		s->width--;
-	if ((s->hash == 1 && CURR_POS == 'x') || (s->hash == 1 && CURR_POS == 'X') || (s->hash == 1 && CURR_POS == 'o'))
+	if ((s->hash == 1 && CURR_POS == 'x') || (s->hash == 1 && CURR_POS == 'X')
+			|| (s->hash == 1 && CURR_POS == 'o'))
 	{
 		if (CURR_POS == 'x' || CURR_POS == 'X')
 			s->width--;
@@ -52,11 +53,8 @@ void			print_space(t_struct *s, int state)
 	}
 }
 
-intmax_t		check_sign(t_struct *s, int i)
+intmax_t		check_sign(t_struct *s, intmax_t i)
 {
-	intmax_t n;
-
-	n = i;
 	if (s->plus == 1 && i >= 0)
 	{
 		write(1, "+", 1);
@@ -65,10 +63,10 @@ intmax_t		check_sign(t_struct *s, int i)
 	else if (i < 0)
 	{
 		write(1, "-", 1);
-		n *= -1;
+		i *= -1;
 		s->printed++;
 	}
-	return (n);
+	return (i);
 }
 
 void			print_zeroes(t_struct *s, int i)

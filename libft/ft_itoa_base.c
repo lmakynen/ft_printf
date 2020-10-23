@@ -6,13 +6,13 @@
 /*   By: lmakynen <lmakynen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/13 18:16:25 by lmakynen          #+#    #+#             */
-/*   Updated: 2020/10/13 18:40:04 by lmakynen         ###   ########.fr       */
+/*   Updated: 2020/10/23 19:27:44 by lmakynen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int		number_count(long long value, int base)
+static int		number_count(intmax_t value, int base)
 {
 	int	len;
 
@@ -31,7 +31,7 @@ static int		number_count(long long value, int base)
 	return (len);
 }
 
-char			*ft_itoa_base(long long value, int base)
+char			*ft_itoa_base(intmax_t value, int base)
 {
 	char	*str;
 	char	*new;

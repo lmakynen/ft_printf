@@ -6,7 +6,7 @@
 /*   By: lmakynen <lmakynen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/20 16:13:39 by lmakynen          #+#    #+#             */
-/*   Updated: 2020/10/20 18:55:06 by lmakynen         ###   ########.fr       */
+/*   Updated: 2020/10/23 19:43:04 by lmakynen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	hexa_conv(t_struct *s, va_list ap)
 	char		*str;
 	int			len;
 
-	i = va_arg(ap, long long);
+	i = get_length_u(s, ap);
 	if (CURR_POS == 'x')
 		str = ft_low_itoa_base(i, 16);
 	else

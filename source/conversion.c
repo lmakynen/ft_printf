@@ -6,7 +6,7 @@
 /*   By: lmakynen <lmakynen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/30 18:50:17 by lmakynen          #+#    #+#             */
-/*   Updated: 2020/10/20 19:13:25 by lmakynen         ###   ########.fr       */
+/*   Updated: 2020/10/23 18:27:26 by lmakynen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,4 @@ void		conversion(t_struct *s, const char *format, va_list ap)
 	else if (CURR_POS == 'p')
 		pointer_conv(s, ap);
 	//add more conversions here
-	//we need to pass the struct to use the modifiers
 }

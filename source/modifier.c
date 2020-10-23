@@ -6,13 +6,11 @@
 /*   By: lmakynen <lmakynen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/30 18:46:01 by lmakynen          #+#    #+#             */
-/*   Updated: 2020/10/13 17:04:44 by lmakynen         ###   ########.fr       */
+/*   Updated: 2020/10/23 18:26:49 by lmakynen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
-
-//still need to read what these modifiers exactly do and how they affect the result!!!!
 
 void	flags(t_struct *s, const char *format)
 {
@@ -43,7 +41,6 @@ void	width(t_struct *s, const char *format, va_list ap)
 	{
 		s->width = va_arg(ap, int);
 		s->pos += ft_intcount(s->width);
-		// maybe like this? check if there's specific rules (for example 0 or < 0)
 	}
 }
 
@@ -55,15 +52,14 @@ void	precision(t_struct *s, const char *format, va_list ap)
 		s->precision = 0;
 		while (format[s->pos] >= '0' && format[s->pos] <= '9')
 		{
-				s->precision *= 10;
-				s->precision += (format[s->pos] - 48);
-				s->pos++;
+			s->precision *= 10;
+			s->precision += (format[s->pos] - 48);
+			s->pos++;
 		}
 		if (format[s->pos] == '*')
 		{
 			s->precision = va_arg(ap, int);
 			s->pos++;
-			// maybe like this? check if there's specific rules (for example 0 or < 0)
 		}
 	}
 }

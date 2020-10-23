@@ -6,7 +6,7 @@
 /*   By: lmakynen <lmakynen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/20 16:21:57 by lmakynen          #+#    #+#             */
-/*   Updated: 2020/10/20 18:55:12 by lmakynen         ###   ########.fr       */
+/*   Updated: 2020/10/23 19:54:55 by lmakynen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	octal_conv(t_struct *s, va_list ap)
 	char		*str;
 	int			len;
 
-	i = va_arg(ap, long long);
+	i = get_length_u(s, ap);
 	str = ft_itoa_base(i, 8);
 	len = ft_strlen(str);
 	if (i == 0 && s->precision == 0)
