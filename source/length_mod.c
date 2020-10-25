@@ -6,7 +6,7 @@
 /*   By: lmakynen <lmakynen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/23 20:15:25 by lmakynen          #+#    #+#             */
-/*   Updated: 2020/10/23 20:15:34 by lmakynen         ###   ########.fr       */
+/*   Updated: 2020/10/25 17:37:07 by lmakynen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,16 +24,14 @@ intmax_t	get_length(t_struct *s, va_list ap)
 		n = (long int)va_arg(ap, long int);
 	else if (s->length == 4)
 		n = (long long int)va_arg(ap, long long int);
-	else if (s->length == 5)
-		n = (long double)va_arg(ap, long double);
 	else
 		n = (int)va_arg(ap, int);
 	return ((intmax_t)n);
 }
 
-intmax_t	get_length_u(t_struct *s, va_list ap)
+uintmax_t	get_length_u(t_struct *s, va_list ap)
 {
-	intmax_t	n;
+	uintmax_t	n;
 
 	if (s->length == 1)
 		n = (unsigned short int)va_arg(ap, unsigned int);
@@ -43,9 +41,18 @@ intmax_t	get_length_u(t_struct *s, va_list ap)
 		n = (unsigned long int)va_arg(ap, uintmax_t);
 	else if (s->length == 4)
 		n = (unsigned long long int)va_arg(ap, uintmax_t);
-	else if (s->length == 5)
-		n = (long double)va_arg(ap, long double);
 	else
 		n = (unsigned int)va_arg(ap, unsigned int);
-	return ((intmax_t)n);
+	return ((uintmax_t)n);
 }
+
+/*intmax_t		get_length_f(t_struct *s, va_list ap)
+{
+	intmax_t	n;
+
+	if (s->length == 5)
+		n = (long double)va_arg(ap, long double);
+	else
+		n = (double)va_arg(ap, double);
+	return((intmax_t)n);
+}*/

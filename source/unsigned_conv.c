@@ -1,50 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   int_conv.c                                         :+:      :+:    :+:   */
+/*   unsigned_conv.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lmakynen <lmakynen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/13 15:40:29 by lmakynen          #+#    #+#             */
-/*   Updated: 2020/10/25 17:34:23 by lmakynen         ###   ########.fr       */
+/*   Created: 2020/10/25 15:53:26 by lmakynen          #+#    #+#             */
+/*   Updated: 2020/10/25 17:36:16 by lmakynen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-static void		check_space(t_struct *s, intmax_t i)
+void	unsigned_conv(t_struct *s, va_list ap)
 {
-	if (i >= 0 && s->plus == 0 && s->space == 1)
-	{
-		s->width--;
-		write(1, " ", 1);
-		s->printed++;
-	}
-}
+	uintmax_t	i;
 
-void			int_conv(t_struct *s, va_list ap)
-{
-	intmax_t	n;
-	intmax_t	i;
-
-	i = get_length(s, ap);
-	check_space(s, i);
-	if (i < 0 && s->precision >= ft_intcount(i))
-		s->precision++;
+	i = get_length_u(s, ap);
 	if (i == 0 && s->precision == 0)
 	{
 		s->empty = 1;
 		s->width++;
 	}
-	check_width(s, ft_intcount(i), i);
+	check_width(s, ft_intcount_u(i), -1);
 	if (s->minus == 0 && s->width > 0)
 		print_space(s, 1);
-	n = check_sign(s, i);
-	print_zeroes(s, ft_intcount(i));
+	print_zeroes(s, ft_intcount_u(i));
 	if (s->empty == 0)
 	{
-		ft_putnbr_intmax(n);
-		s->printed += ft_intcount(n);
+		ft_putnbr_uintmax(i);
+		s->printed += ft_intcount_u(i);
 	}
 	if (s->width > 0)
 		print_space(s, 2);

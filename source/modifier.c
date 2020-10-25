@@ -6,7 +6,7 @@
 /*   By: lmakynen <lmakynen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/30 18:46:01 by lmakynen          #+#    #+#             */
-/*   Updated: 2020/10/23 18:26:49 by lmakynen         ###   ########.fr       */
+/*   Updated: 2020/10/25 17:13:45 by lmakynen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,12 @@ void	width(t_struct *s, const char *format, va_list ap)
 	else if (format[s->pos] == '*')
 	{
 		s->width = va_arg(ap, int);
-		s->pos += ft_intcount(s->width);
+		if (s->width < 0)
+		{
+			s->width *= -1;
+			s->minus = 1;
+		}
+		s->pos++;
 	}
 }
 

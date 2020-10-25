@@ -6,7 +6,7 @@
 /*   By: lmakynen <lmakynen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/20 15:48:21 by lmakynen          #+#    #+#             */
-/*   Updated: 2020/10/23 18:50:55 by lmakynen         ###   ########.fr       */
+/*   Updated: 2020/10/25 16:39:47 by lmakynen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,7 @@ void			print_zeroes(t_struct *s, int i)
 	}
 }
 
-void			print_value(t_struct *s, char *str, intmax_t i)
+void			print_value(t_struct *s, char *str, uintmax_t i)
 {
 	if (s->hash == 1 && i > 0)
 	{

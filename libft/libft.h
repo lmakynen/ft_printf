@@ -6,7 +6,7 @@
 /*   By: lmakynen <lmakynen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/17 16:09:52 by lmakynen          #+#    #+#             */
-/*   Updated: 2020/10/23 19:10:44 by lmakynen         ###   ########.fr       */
+/*   Updated: 2020/10/25 16:36:15 by lmakynen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,7 @@ void				ft_lstadd(t_list **alst, t_list *new);
 void				ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 void				ft_lstaddend(t_list **alst, t_list *end);
 void				ft_putnbr_intmax(intmax_t nbr);
+void				ft_putnbr_uintmax(uintmax_t nbr);
 
 char				*ft_strcpy(char *dst, const char *src);
 char				*ft_strdup(const char *s1);
@@ -80,6 +81,8 @@ char				*ft_itoa(int n);
 char				*ft_strndup(const char *s1, size_t n);
 char				*ft_itoa_base(intmax_t value, int base);
 char				*ft_low_itoa_base(intmax_t value, int base);
+char				*ft_itoa_base_u(uintmax_t value, int base);
+char				*ft_itoa_base_low_u(uintmax_t value, int base);
 
 int					ft_strncmp(const char *s1, const char *s2, size_t n);
 int					ft_strcmp(const char *s1, const char *s2);
@@ -102,5 +105,6 @@ int					ft_wordcount(char *str, char c);
 int					get_next_line(const int fd, char **line);
 int					ft_abs(int i);
 int					ft_intcount(intmax_t n);
+int					ft_intcount_u(uintmax_t n);
 
 #endif

@@ -1,38 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   octal_conv.c                                       :+:      :+:    :+:   */
+/*   percent_conv.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lmakynen <lmakynen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/20 16:21:57 by lmakynen          #+#    #+#             */
-/*   Updated: 2020/10/25 16:28:05 by lmakynen         ###   ########.fr       */
+/*   Created: 2020/10/25 16:45:56 by lmakynen          #+#    #+#             */
+/*   Updated: 2020/10/25 17:36:53 by lmakynen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-void	octal_conv(t_struct *s, va_list ap)
+void		percent_conv(t_struct *s)
 {
-	uintmax_t	i;
-	char		*str;
-	int			len;
-
-	i = get_length_u(s, ap);
-	str = ft_itoa_base_u(i, 8);
-	len = ft_strlen(str);
-	if (i == 0 && s->precision == 0)
-	{
-		s->empty = 1;
-		s->width++;
-		s->printed--;
-	}
-	check_width(s, len, -1);
+	s->precision = -1;
+	check_width(s, 1, -1);
 	if (s->minus == 0 && s->width > 0)
 		print_space(s, 1);
-	print_zeroes(s, len);
-	print_value(s, str, i);
+	print_zeroes(s, 1);
+	write(1, "%%", 1);
+	s->printed++;
 	if (s->width > 0)
 		print_space(s, 2);
-	s->printed += len;
 }
