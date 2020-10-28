@@ -6,7 +6,7 @@
 /*   By: lmakynen <lmakynen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/30 15:10:59 by lmakynen          #+#    #+#             */
-/*   Updated: 2020/10/25 16:52:23 by lmakynen         ###   ########.fr       */
+/*   Updated: 2020/10/28 19:16:56 by lmakynen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ void			print_space(t_struct *s, int state);
 void			print_zeroes(t_struct *s, int i);
 void			hexa_conv(t_struct *s, va_list ap);
 void			octal_conv(t_struct *s, va_list ap);
-void			print_value(t_struct *s, char *str, uintmax_t i);
+void			print_value(t_struct *s, char *str, uintmax_t i, int state);
 void			pointer_conv(t_struct *s, va_list ap);
 void			unsigned_conv(t_struct *s, va_list ap);
 void			percent_conv(t_struct *s);

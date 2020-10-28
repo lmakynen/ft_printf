@@ -6,7 +6,7 @@
 /*   By: lmakynen <lmakynen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/20 19:12:25 by lmakynen          #+#    #+#             */
-/*   Updated: 2020/10/20 19:42:10 by lmakynen         ###   ########.fr       */
+/*   Updated: 2020/10/28 19:18:18 by lmakynen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	pointer_conv(t_struct *s, va_list ap)
 		print_space(s, 1);
 	write(1, "0x", 2);
 	print_zeroes(s, len);
-	print_value(s, str, i);
+	print_value(s, str, i, 2);
 	if (s->width > 0)
 		print_space(s, 2);
 	s->printed += (len + 2);

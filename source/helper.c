@@ -6,7 +6,7 @@
 /*   By: lmakynen <lmakynen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/20 15:48:21 by lmakynen          #+#    #+#             */
-/*   Updated: 2020/10/25 16:39:47 by lmakynen         ###   ########.fr       */
+/*   Updated: 2020/10/28 19:16:39 by lmakynen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,9 +92,9 @@ void			print_zeroes(t_struct *s, int i)
 	}
 }
 
-void			print_value(t_struct *s, char *str, uintmax_t i)
+void			print_value(t_struct *s, char *str, uintmax_t i, int state)
 {
-	if (s->hash == 1 && i > 0)
+	if (s->hash == 1 && i > 0 && state == 1)
 	{
 		if (CURR_POS == 'x')
 		{
@@ -112,8 +112,8 @@ void			print_value(t_struct *s, char *str, uintmax_t i)
 			s->printed++;
 		}
 	}
-	if (s->empty == 0)
+	if (s->empty == 0 && state == 2)
 		ft_putstr(str);
-	if (i > 0)
+	if (i > 0 && state == 2)
 		free(str);
 }

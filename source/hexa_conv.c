@@ -6,7 +6,7 @@
 /*   By: lmakynen <lmakynen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/20 16:13:39 by lmakynen          #+#    #+#             */
-/*   Updated: 2020/10/25 16:24:54 by lmakynen         ###   ########.fr       */
+/*   Updated: 2020/10/28 19:15:57 by lmakynen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,9 @@ void	hexa_conv(t_struct *s, va_list ap)
 	check_width(s, len, -1);
 	if (s->minus == 0 && s->width > 0)
 		print_space(s, 1);
+	print_value(s, str, i, 1);
 	print_zeroes(s, len);
-	print_value(s, str, i);
+	print_value(s, str, i, 2);
 	if (s->width > 0)
 		print_space(s, 2);
 	s->printed += len;
