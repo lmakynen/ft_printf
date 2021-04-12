@@ -6,7 +6,7 @@
 /*   By: lmakynen <lmakynen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/30 15:10:59 by lmakynen          #+#    #+#             */
-/*   Updated: 2021/01/24 21:20:56 by lmakynen         ###   ########.fr       */
+/*   Updated: 2021/04/12 19:45:33 by lmakynen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <stdarg.h>
 # include <unistd.h>
 # include <stdint.h>
+# include <limits.h>
 
 /*
 ** Macros of conversions, flags, modifiers and all of them combined.
