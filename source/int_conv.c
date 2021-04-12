@@ -6,7 +6,7 @@
 /*   By: lmakynen <lmakynen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/13 15:40:29 by lmakynen          #+#    #+#             */
-/*   Updated: 2021/04/12 20:44:52 by lmakynen         ###   ########.fr       */
+/*   Updated: 2021/04/12 20:49:38 by lmakynen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ static void		helper_int(t_struct *s, intmax_t i)
 
 static void		print_min(t_struct *s, intmax_t i)
 {
-	if (i < 0 && s->precision >= 20)
+	if (s->precision >= 20)
 		s->precision++;
 	check_width(s, 20, i);
 	if (s->minus == 0 && s->width > 0)
