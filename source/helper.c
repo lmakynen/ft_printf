@@ -6,11 +6,18 @@
 /*   By: lmakynen <lmakynen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/20 15:48:21 by lmakynen          #+#    #+#             */
-/*   Updated: 2020/10/28 19:16:39 by lmakynen         ###   ########.fr       */
+/*   Updated: 2020/12/21 16:31:49 by lmakynen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
+
+/*
+** Helper functions for the conversions.
+** Each function represents a certain sub-specifier
+** except for the print_value() where I also
+** print the conversion.
+*/
 
 void			check_width(t_struct *s, int i, intmax_t nb)
 {

@@ -6,11 +6,18 @@
 /*   By: lmakynen <lmakynen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/30 18:46:01 by lmakynen          #+#    #+#             */
-/*   Updated: 2020/10/25 17:13:45 by lmakynen         ###   ########.fr       */
+/*   Updated: 2020/12/09 20:05:45 by lmakynen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
+
+/*
+** I pass the input through different functions which check
+** the flags, width, precision and modifiers. If the input
+** has some sub-specifiers (like the minus flag), it's put
+** to my struct for later use.
+*/
 
 void	flags(t_struct *s, const char *format)
 {
@@ -82,12 +89,6 @@ void	length(t_struct *s, const char *format)
 	else if (s->length == 1 || s->length == 3 || s->length == 5)
 		s->pos += 1;
 }
-
-/*
-** We will pass the struct and input through all of the
-** possible modifiers and fill them into our stuct
-** when they appear.
-*/
 
 void	modifier(t_struct *s, const char *format, va_list ap)
 {

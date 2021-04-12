@@ -6,11 +6,18 @@
 /*   By: lmakynen <lmakynen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/20 16:13:39 by lmakynen          #+#    #+#             */
-/*   Updated: 2020/10/28 19:15:57 by lmakynen         ###   ########.fr       */
+/*   Updated: 2021/01/05 16:54:39 by lmakynen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
+
+/*
+** Unsigned hexadecimal integer conversion.
+** Every sub-specifier is present. I do
+** the conversion according to the sub-specifiers
+** and write the value.
+*/
 
 void	hexa_conv(t_struct *s, va_list ap)
 {

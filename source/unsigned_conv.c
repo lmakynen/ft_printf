@@ -6,11 +6,19 @@
 /*   By: lmakynen <lmakynen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/25 15:53:26 by lmakynen          #+#    #+#             */
-/*   Updated: 2020/10/25 17:36:16 by lmakynen         ###   ########.fr       */
+/*   Updated: 2021/02/23 19:23:31 by lmakynen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
+
+/*
+** Unsigned decimal integer conversion.
+** Every sub-specifier is taken into account
+** except for hash. I do the conversion
+** according to those sub-specifiers and write
+** the output.
+*/
 
 void	unsigned_conv(t_struct *s, va_list ap)
 {

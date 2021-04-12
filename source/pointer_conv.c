@@ -6,11 +6,21 @@
 /*   By: lmakynen <lmakynen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/20 19:12:25 by lmakynen          #+#    #+#             */
-/*   Updated: 2020/10/28 19:18:18 by lmakynen         ###   ########.fr       */
+/*   Updated: 2021/02/16 20:42:48 by lmakynen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
+
+/*
+** Pointer address conversion.
+** Every sub-specifier is taken into account
+** except for hash and length. I do the conversion
+** according to those sub-specifiers and write
+** the output. I get the pointer address by
+** using ft_low_itoa_base with base 16.
+** Just need to add 0x in front.
+*/
 
 void	pointer_conv(t_struct *s, va_list ap)
 {

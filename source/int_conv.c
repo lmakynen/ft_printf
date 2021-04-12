@@ -6,11 +6,19 @@
 /*   By: lmakynen <lmakynen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/13 15:40:29 by lmakynen          #+#    #+#             */
-/*   Updated: 2020/10/25 17:34:23 by lmakynen         ###   ########.fr       */
+/*   Updated: 2021/03/26 20:51:35 by lmakynen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
+
+/*
+** Signed decimal integer conversion.
+** Every sub-specifier is taken into account
+** except for hash. I do the conversion
+** according to those sub-specifiers and write
+** the output.
+*/
 
 static void		check_space(t_struct *s, intmax_t i)
 {

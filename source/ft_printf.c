@@ -6,11 +6,25 @@
 /*   By: lmakynen <lmakynen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/30 17:06:14 by lmakynen          #+#    #+#             */
-/*   Updated: 2020/10/23 18:24:12 by lmakynen         ###   ########.fr       */
+/*   Updated: 2021/01/05 17:52:01 by lmakynen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
+
+/*
+** The program starts here. First I allocate memory for my struct.
+** After that I initialize a variable argument list and set some
+** variables to my struct. I don't want to reset these variables, so
+** I set them seperately at the start. Then I check that the input is
+** correct. If everything is fine, I start looping the input.
+** If the input doesn't need the conversion process, I just print it.
+** Otherwise I start the process by setting default values to my struct.
+** Then I check all the specifiers and finally the conversion.
+** When I have looped through the whole input, I end the variable
+** argument list and free my struct. Then I return the number of printed
+** characters. :)
+*/
 
 void		set_struct(t_struct *s)
 {
@@ -23,6 +37,7 @@ void		set_struct(t_struct *s)
 	s->precision = -1;
 	s->length = 0;
 	s->empty = 0;
+	s->neg = 0;
 }
 
 void		check_all(t_struct *s, const char *format, va_list ap)

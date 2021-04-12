@@ -6,11 +6,18 @@
 /*   By: lmakynen <lmakynen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/30 18:55:37 by lmakynen          #+#    #+#             */
-/*   Updated: 2020/10/20 19:36:24 by lmakynen         ###   ########.fr       */
+/*   Updated: 2020/12/09 20:20:56 by lmakynen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
+
+/*
+** Character conversion. The only things I have to
+** take into consideration are the minus flag and
+** width. I do the conversion according to those two
+** sub-specifiers and write the output.
+*/
 
 static void		width_char(t_struct *s, char c)
 {

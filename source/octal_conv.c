@@ -6,11 +6,18 @@
 /*   By: lmakynen <lmakynen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/20 16:21:57 by lmakynen          #+#    #+#             */
-/*   Updated: 2020/10/28 20:07:40 by lmakynen         ###   ########.fr       */
+/*   Updated: 2020/12/23 17:03:44 by lmakynen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
+
+/*
+** Unsigned octal conversion.
+** Every sub-specifier is present. I do
+** the conversion according to the sub-specifiers
+** and write the value.
+*/
 
 void	octal_conv(t_struct *s, va_list ap)
 {
