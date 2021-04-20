@@ -6,7 +6,7 @@
 /*   By: lmakynen <lmakynen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/30 18:46:01 by lmakynen          #+#    #+#             */
-/*   Updated: 2020/12/09 20:05:45 by lmakynen         ###   ########.fr       */
+/*   Updated: 2021/04/20 22:37:32 by lmakynen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,20 +39,24 @@ void	flags(t_struct *s, const char *format)
 
 void	width(t_struct *s, const char *format, va_list ap)
 {
-	if (format[s->pos] >= '0' && format[s->pos] <= '9')
+	while ((format[s->pos] >= '0' && format[s->pos] <= '9')
+		|| format[s->pos] == '*')
 	{
-		s->width = ft_atoi(&format[s->pos]);
-		s->pos += ft_intcount(s->width);
-	}
-	else if (format[s->pos] == '*')
-	{
-		s->width = va_arg(ap, int);
-		if (s->width < 0)
+		if (format[s->pos] >= '0' && format[s->pos] <= '9')
 		{
-			s->width *= -1;
-			s->minus = 1;
+			s->width = ft_atoi(&format[s->pos]);
+			s->pos += ft_intcount(s->width);
 		}
-		s->pos++;
+		else if (format[s->pos] == '*')
+		{
+			s->width = va_arg(ap, int);
+			if (s->width < 0)
+			{
+				s->width *= -1;
+				s->minus = 1;
+			}
+			s->pos++;
+		}
 	}
 }
 
@@ -60,18 +64,21 @@ void	precision(t_struct *s, const char *format, va_list ap)
 {
 	if (format[s->pos] == '.')
 	{
-		s->pos++;
 		s->precision = 0;
-		while (format[s->pos] >= '0' && format[s->pos] <= '9')
+		while (format[s->pos] == '.')
 		{
-			s->precision *= 10;
-			s->precision += (format[s->pos] - 48);
 			s->pos++;
-		}
-		if (format[s->pos] == '*')
-		{
-			s->precision = va_arg(ap, int);
-			s->pos++;
+			while (format[s->pos] >= '0' && format[s->pos] <= '9')
+			{
+				s->precision *= 10;
+				s->precision += (format[s->pos] - 48);
+				s->pos++;
+			}
+			if (format[s->pos] == '*')
+			{
+				s->precision = va_arg(ap, int);
+				s->pos++;
+			}
 		}
 	}
 }
