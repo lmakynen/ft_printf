@@ -6,11 +6,18 @@
 /*   By: lmakynen <lmakynen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/30 18:46:01 by lmakynen          #+#    #+#             */
-/*   Updated: 2020/10/25 17:13:45 by lmakynen         ###   ########.fr       */
+/*   Updated: 2021/04/27 16:21:00 by lmakynen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
+
+/*
+** I pass the input through different functions which check
+** the flags, width, precision and modifiers. If the input
+** has some sub-specifiers (like the minus flag), it's put
+** to my struct for later use.
+*/
 
 void	flags(t_struct *s, const char *format)
 {
@@ -32,20 +39,24 @@ void	flags(t_struct *s, const char *format)
 
 void	width(t_struct *s, const char *format, va_list ap)
 {
-	if (format[s->pos] >= '0' && format[s->pos] <= '9')
+	while ((format[s->pos] >= '0' && format[s->pos] <= '9')
+		|| format[s->pos] == '*')
 	{
-		s->width = ft_atoi(&format[s->pos]);
-		s->pos += ft_intcount(s->width);
-	}
-	else if (format[s->pos] == '*')
-	{
-		s->width = va_arg(ap, int);
-		if (s->width < 0)
+		if (format[s->pos] >= '0' && format[s->pos] <= '9')
 		{
-			s->width *= -1;
-			s->minus = 1;
+			s->width = ft_atoi(&format[s->pos]);
+			s->pos += ft_intcount(s->width);
 		}
-		s->pos++;
+		else if (format[s->pos] == '*')
+		{
+			s->width = va_arg(ap, int);
+			if (s->width < 0)
+			{
+				s->width *= -1;
+				s->minus = 1;
+			}
+			s->pos++;
+		}
 	}
 }
 
@@ -53,18 +64,22 @@ void	precision(t_struct *s, const char *format, va_list ap)
 {
 	if (format[s->pos] == '.')
 	{
-		s->pos++;
 		s->precision = 0;
-		while (format[s->pos] >= '0' && format[s->pos] <= '9')
+		while (format[s->pos] == '.')
 		{
-			s->precision *= 10;
-			s->precision += (format[s->pos] - 48);
+			s->precision = 0;
 			s->pos++;
-		}
-		if (format[s->pos] == '*')
-		{
-			s->precision = va_arg(ap, int);
-			s->pos++;
+			while (format[s->pos] >= '0' && format[s->pos] <= '9')
+			{
+				s->precision *= 10;
+				s->precision += (format[s->pos] - 48);
+				s->pos++;
+			}
+			if (format[s->pos] == '*')
+			{
+				s->precision = va_arg(ap, int);
+				s->pos++;
+			}
 		}
 	}
 }
@@ -82,12 +97,6 @@ void	length(t_struct *s, const char *format)
 	else if (s->length == 1 || s->length == 3 || s->length == 5)
 		s->pos += 1;
 }
-
-/*
-** We will pass the struct and input through all of the
-** possible modifiers and fill them into our stuct
-** when they appear.
-*/
 
 void	modifier(t_struct *s, const char *format, va_list ap)
 {

@@ -6,13 +6,30 @@
 /*   By: lmakynen <lmakynen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/20 16:13:39 by lmakynen          #+#    #+#             */
-/*   Updated: 2020/10/28 19:15:57 by lmakynen         ###   ########.fr       */
+/*   Updated: 2021/04/27 18:24:19 by lmakynen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-void	hexa_conv(t_struct *s, va_list ap)
+/*
+** Unsigned hexadecimal integer conversion.
+** Every sub-specifier is present. I do
+** the conversion according to the sub-specifiers
+** and write the value.
+*/
+
+static void	print_all(t_struct *s, char *str, int len, uintmax_t i)
+{
+	print_value(s, str, i, 1);
+	print_zeroes(s, len);
+	print_value(s, str, i, 2);
+	if (s->width > 0)
+		print_space(s, 2);
+	s->printed += len;
+}
+
+void		hexa_conv(t_struct *s, va_list ap)
 {
 	uintmax_t	i;
 	char		*str;
@@ -30,13 +47,11 @@ void	hexa_conv(t_struct *s, va_list ap)
 		s->width++;
 		s->printed--;
 	}
-	check_width(s, len, -1);
+	if (i != 0)
+		check_width(s, len, -1);
+	else
+		check_width(s, len, 0);
 	if (s->minus == 0 && s->width > 0)
 		print_space(s, 1);
-	print_value(s, str, i, 1);
-	print_zeroes(s, len);
-	print_value(s, str, i, 2);
-	if (s->width > 0)
-		print_space(s, 2);
-	s->printed += len;
+	print_all(s, str, len, i);
 }
