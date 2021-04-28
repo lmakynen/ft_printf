@@ -5,12 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: lmakynen <lmakynen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/09/30 18:46:01 by lmakynen          #+#    #+#             */
-<<<<<<< HEAD
-/*   Updated: 2021/04/28 18:14:17 by lmakynen         ###   ########.fr       */
-=======
-/*   Updated: 2021/04/20 22:37:32 by lmakynen         ###   ########.fr       */
->>>>>>> 47df7089f2378cb613033630295f5c45dcaa7b9f
+/*   Created: 2021/04/28 18:25:17 by lmakynen          #+#    #+#             */
+/*   Updated: 2021/04/28 18:25:45 by lmakynen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,15 +64,9 @@ void	precision(t_struct *s, const char *format, va_list ap)
 {
 	if (format[s->pos] == '.')
 	{
-<<<<<<< HEAD
 		while (format[s->pos] == '.')
 		{
 			s->precision = 0;
-=======
-		s->precision = 0;
-		while (format[s->pos] == '.')
-		{
->>>>>>> 47df7089f2378cb613033630295f5c45dcaa7b9f
 			s->pos++;
 			while (format[s->pos] >= '0' && format[s->pos] <= '9')
 			{
