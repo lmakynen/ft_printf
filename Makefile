@@ -6,7 +6,7 @@
 #    By: lmakynen <lmakynen@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/09/30 19:22:56 by lmakynen          #+#    #+#              #
-#    Updated: 2020/10/25 16:50:49 by lmakynen         ###   ########.fr        #
+#    Updated: 2021/01/24 21:13:14 by lmakynen         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ SOURCE_DIR = source/
 
 SOURCE_FILES = ft_printf.c conversion.c modifier.c char_conv.c str_conv.c \
 	int_conv.c helper.c hexa_conv.c octal_conv.c pointer_conv.c length_mod.c \
-	unsigned_conv.c percent_conv.c
+	unsigned_conv.c percent_conv.c float_conv.c helper_float.c
 
 SOURCE = $(addprefix $(SOURCE_DIR), $(SOURCE_FILES))
 

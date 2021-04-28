@@ -6,7 +6,7 @@
 /*   By: lmakynen <lmakynen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/17 16:09:52 by lmakynen          #+#    #+#             */
-/*   Updated: 2020/10/25 16:36:15 by lmakynen         ###   ########.fr       */
+/*   Updated: 2021/01/24 20:09:31 by lmakynen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,6 +83,8 @@ char				*ft_itoa_base(intmax_t value, int base);
 char				*ft_low_itoa_base(intmax_t value, int base);
 char				*ft_itoa_base_u(uintmax_t value, int base);
 char				*ft_itoa_base_low_u(uintmax_t value, int base);
+char				*ft_imaxtoa(intmax_t nb);
+char				*ft_ftoa(long double nbr, int p);
 
 int					ft_strncmp(const char *s1, const char *s2, size_t n);
 int					ft_strcmp(const char *s1, const char *s2);

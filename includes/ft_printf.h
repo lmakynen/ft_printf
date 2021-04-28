@@ -6,7 +6,7 @@
 /*   By: lmakynen <lmakynen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/30 15:10:59 by lmakynen          #+#    #+#             */
-/*   Updated: 2020/10/28 19:16:56 by lmakynen         ###   ########.fr       */
+/*   Updated: 2021/04/12 19:45:33 by lmakynen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <stdarg.h>
 # include <unistd.h>
 # include <stdint.h>
+# include <limits.h>
 
 /*
 ** Macros of conversions, flags, modifiers and all of them combined.
@@ -37,6 +38,7 @@
 typedef struct	s_struct
 {
 	int		pos;
+	int		neg;
 	int		minus;
 	int		plus;
 	int		space;
@@ -73,6 +75,9 @@ void			print_value(t_struct *s, char *str, uintmax_t i, int state);
 void			pointer_conv(t_struct *s, va_list ap);
 void			unsigned_conv(t_struct *s, va_list ap);
 void			percent_conv(t_struct *s);
+void			float_conv(t_struct *s, va_list ap);
+void			print_space_f(t_struct *s, int state);
+void			print_zeroes_f(t_struct *s);
 
 int				check_input(const char *format, t_struct *s, va_list ap);
 int				ft_printf(const char *format, ...);
