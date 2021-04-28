@@ -6,11 +6,18 @@
 /*   By: lmakynen <lmakynen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/01 15:48:51 by lmakynen          #+#    #+#             */
-/*   Updated: 2020/10/20 19:42:27 by lmakynen         ###   ########.fr       */
+/*   Updated: 2020/12/09 20:18:00 by lmakynen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
+
+/*
+** String conversion. The only things I have to take
+** into consideration are precision, width and minus flag.
+** I do the conversion according to those sub-specifiers
+** and write the output.
+*/
 
 static char		*precision_str(t_struct *s, char *str)
 {

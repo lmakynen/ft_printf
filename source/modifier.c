@@ -6,7 +6,7 @@
 /*   By: lmakynen <lmakynen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/30 18:46:01 by lmakynen          #+#    #+#             */
-/*   Updated: 2021/04/27 16:21:00 by lmakynen         ###   ########.fr       */
+/*   Updated: 2021/04/28 18:14:17 by lmakynen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,6 @@ void	precision(t_struct *s, const char *format, va_list ap)
 {
 	if (format[s->pos] == '.')
 	{
-		s->precision = 0;
 		while (format[s->pos] == '.')
 		{
 			s->precision = 0;

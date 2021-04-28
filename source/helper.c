@@ -6,11 +6,18 @@
 /*   By: lmakynen <lmakynen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/20 15:48:21 by lmakynen          #+#    #+#             */
-/*   Updated: 2020/10/28 19:16:39 by lmakynen         ###   ########.fr       */
+/*   Updated: 2021/04/12 18:41:09 by lmakynen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
+
+/*
+** Helper functions for the conversions.
+** Each function represents a certain sub-specifier
+** except for the print_value() where I also
+** print the conversion.
+*/
 
 void			check_width(t_struct *s, int i, intmax_t nb)
 {
@@ -18,12 +25,15 @@ void			check_width(t_struct *s, int i, intmax_t nb)
 		s->width -= (s->precision - i);
 	if (s->plus == 1 && nb >= 0)
 		s->width--;
-	if ((s->hash == 1 && CURR_POS == 'x') || (s->hash == 1 && CURR_POS == 'X')
-			|| (s->hash == 1 && CURR_POS == 'o'))
+	if (nb != 0)
 	{
-		if (CURR_POS == 'x' || CURR_POS == 'X')
+		if ((s->hash == 1 && CURR_POS == 'x') || (s->hash == 1 &&
+			CURR_POS == 'X') || (s->hash == 1 && CURR_POS == 'o'))
+		{
+			if (CURR_POS == 'x' || CURR_POS == 'X')
+				s->width--;
 			s->width--;
-		s->width--;
+		}
 	}
 	s->width -= i;
 }

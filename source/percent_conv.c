@@ -6,11 +6,17 @@
 /*   By: lmakynen <lmakynen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/25 16:45:56 by lmakynen          #+#    #+#             */
-/*   Updated: 2020/10/25 17:36:53 by lmakynen         ###   ########.fr       */
+/*   Updated: 2020/12/23 17:06:34 by lmakynen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
+
+/*
+** Percent sign conversion.
+** Only width and minus are taken
+** into account.
+*/
 
 void		percent_conv(t_struct *s)
 {

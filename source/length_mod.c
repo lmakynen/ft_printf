@@ -6,11 +6,20 @@
 /*   By: lmakynen <lmakynen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/23 20:15:25 by lmakynen          #+#    #+#             */
-/*   Updated: 2020/10/25 17:37:07 by lmakynen         ###   ########.fr       */
+/*   Updated: 2021/04/12 17:59:06 by lmakynen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
+
+/*
+** Length modifier. I type cast the value
+** into the desired length. Then I type cast
+** it back to intmax_t or uintmax_t depending
+** if it's unsigned or not. This way I make
+** the conversion process easier without
+** changing the value.
+*/
 
 intmax_t	get_length(t_struct *s, va_list ap)
 {
@@ -45,14 +54,3 @@ uintmax_t	get_length_u(t_struct *s, va_list ap)
 		n = (unsigned int)va_arg(ap, unsigned int);
 	return ((uintmax_t)n);
 }
-
-/*intmax_t		get_length_f(t_struct *s, va_list ap)
-{
-	intmax_t	n;
-
-	if (s->length == 5)
-		n = (long double)va_arg(ap, long double);
-	else
-		n = (double)va_arg(ap, double);
-	return((intmax_t)n);
-}*/
