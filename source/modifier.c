@@ -6,7 +6,7 @@
 /*   By: lmakynen <lmakynen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/28 18:25:17 by lmakynen          #+#    #+#             */
-/*   Updated: 2021/04/28 18:25:45 by lmakynen         ###   ########.fr       */
+/*   Updated: 2021/04/28 18:28:27 by lmakynen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,7 @@ void	precision(t_struct *s, const char *format, va_list ap)
 		}
 	}
 }
+
 
 void	length(t_struct *s, const char *format)
 {
