@@ -6,7 +6,7 @@
 /*   By: lmakynen <lmakynen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/30 17:06:14 by lmakynen          #+#    #+#             */
-/*   Updated: 2021/01/05 17:52:01 by lmakynen         ###   ########.fr       */
+/*   Updated: 2021/05/10 19:18:52 by lmakynen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,10 @@ int			ft_printf(const char *format, ...)
 	s->printed = 0;
 	len = ft_strlen(format);
 	if (len == 0 || (len == 1 && format[0] == '%'))
+	{
+		free(s);
 		return (0);
+	}
 	check_format(s, format, ap);
 	va_end(ap);
 	free(s);
